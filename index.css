@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    scroll-behavior: smooth;
+}
+html {
+    box-sizing: border-box;
+}
+body {
+    background-color: #ccc;
+}
+:root {
+    --text-color : #000;
+    --main-backgroundColor : #ec1f55;
+    --cd-dim: 160px;
+    --img-kichthuoc: 150px;
+}
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+#main {
+    
+}
+
+#dash-board {
+    background: #fff;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+#dash-board .heading {
+    
+}
+#dash-board .heading h4 {
+    color: var(--main-backgroundColor);
+}
+#dash-board .cdThumb {
+    width: var(--cd-dim);
+    height: var(--cd-dim);
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+#dash-board .cdThumb .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+#dash-board .cdThumb .circle .mark, #dash-board .cdThumb .circle .mark .fill {
+    position: absolute;
+    height: var(--cd-dim);
+    width: var(--cd-dim);
+    border-radius: 50%;
+}
+
+#dash-board .cdThumb .circle .mark {
+    /* cắt và hiển thị 1/2 hình tròn bên phải */
+    clip: rect(0px, var(--cd-dim), var(--cd-dim), calc(var(--cd-dim)/2));
+    transform: rotate(0deg);
+}
+#dash-board .cdThumb .circle .mark .fill {
+    /* cắt và hiển thị 1/2 hình tròn bên trái */
+    clip: rect(0px, calc(var(--cd-dim)/2), var(--cd-dim), 0px);
+    background: var(--main-backgroundColor);
+    transform: rotate(0deg);
+}
+#dash-board .cdThumb .circle .mark.half {
+    
+}
+#dash-board .cdThumb .circle .img {
+    background-image: url(/Xay_dung_music_player_bigcoures16_js/img/sad.jpg);
+    background-repeat: round;
+    width: var(--img-kichthuoc);
+    height: var(--img-kichthuoc);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 5;
+}
+#dash-board .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#dash-board .buttons .button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: 0 20px;
+    opacity: 0.5;
+    
+}
+#dash-board .button.volume {
+    position: absolute;
+    right: 6%;
+}
+#dash-board .button.volume .volume-mute, 
+#dash-board .button.volume .volume-low, 
+#dash-board .button.volume .volume-high {
+    width: 20px;
+    position: absolute;
+    visibility: hidden;
+}
+
+#dash-board .button.volume .volume-high.active,
+#dash-board .button.volume .volume-low.active,
+#dash-board .button.volume .volume-mute.active {
+    position: relative;
+    visibility: visible;
+}
+
+#dash-board .buttons .button.random.active,
+#dash-board .buttons .button.repeat.active {
+    opacity: 0.7;
+    color: var(--main-backgroundColor);
+}
+#dash-board .buttons .button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+#dash-board .buttons .toggle-pause_play {
+    opacity: 0.7;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: var(--main-backgroundColor);
+    border-radius: 50%;
+}
+
+#dash-board .buttons .toggle-pause_play .icon-pause,
+#dash-board .buttons .toggle-pause_play.playing .icon-play {
+    display: none;
+}
+
+#dash-board .buttons .toggle-pause_play.playing .icon-pause {
+    display: block;
+}
+
+#dash-board .duration-bar {
+    margin-top: 8px;
+}
+
+input[type=range] {
+    appearance: none;
+    opacity: 0.9;
+    height: 5px;
+    border-radius: 40px;
+    background: #ccc;
+    margin: 5px 0;
+    width: 100%;
+    -webkit-transition: 0.2s;
+}
+input[type=range]:hover {
+    height: 8px;
+}
+input[type=range].duration-volume-bar {
+    background: linear-gradient(to right, rgb(245, 108, 154) 100%, rgb(214, 214, 214) 100%);
+    position: absolute;
+    rotate: -90deg;
+    top: -45px;
+    right: -19px;
+    visibility: hidden;
+    width: 60px;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    /* height: 10px;
+    width: 12px; */
+    border-radius: 5px;
+    background: var(--main-backgroundColor);
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+input[type=range]:hover::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+}
+
+input[type=range]:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#play-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    max-width: 480px;
+    margin: 315px auto;
+}
+#play-list .song {
+    display: flex;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+#play-list .song:hover {
+    cursor: pointer;
+    background-color: #bd9f9f;
+}
+#play-list .song.active {
+    background-color: rgb(236 31 85 / 40%);
+}
+#play-list .song.active .body .name-song {
+    color: #fff;
+}
+
+#play-list .song .thumb {
+    margin: 0 5px;
+    flex: 1;
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: url(/Xay_dung_music_player_bigcoures16_js/img/binz_album_big_cityBoy.jpg);
+}
+#play-list .song .body {
+    flex: 2;
+    padding: 5px;
+}
+#play-list .song .body .name-song {
+    font-size: 24px;
+    font-weight: 900;
+}
+#play-list .song .body .singer {
+    opacity: 0.5;
+}
+

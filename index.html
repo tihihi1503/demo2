@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/new2/index.css">
+    <link rel="stylesheet" href="/w3_band/assets/iconfont/fontawesome-free-6.4.0-web/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+       <div id="dash-board">
+        <header class="heading">
+            <h4>Now Playing</h4>
+            <h3>Tên bài nhạc</h3>
+        </header>
+        <div class="cdThumb">
+            <div class="circle">
+                
+                <div class="mark full">
+                    <div class="fill"></div>
+                </div>
+                
+                <div class="mark half">
+                    <div class="fill"></div>
+                </div>
+                <div class="img"></div>
+            </div>
+        </div>
+        <div class="buttons margin-top-10">
+            <div class="button repeat"><i class="fa-solid fa-repeat"></i></div>
+            <div class="button back"><i class="fa-solid fa-backward"></i></div>
+            <div class="button toggle-pause_play">
+                <i class="fa-solid fa-pause icon-pause"></i>
+                <i class="fa-solid fa-play icon-play"></i>
+            </div>
+            
+            <div class="button next"><i class="fa-solid fa-forward"></i></div>
+            <div class="button random"><i class="fa-solid fa-shuffle"></i></div>
+            <div class="button volume">
+                <div class="volume-mute">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                </div>
+                <div class="volume-low">
+                    <i class="fa-solid fa-volume-low"></i>
+                </div>
+                <div class="volume-high active">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <input type="range" value="1" step="0.1" min="0" max="1" class="duration-volume-bar">
+            </div>
+        </div>
+        
+        <div class="duration-bar">
+            <input class="sliderBar" type="range" step="1" value="0" min="0" max="100">
+        </div>
+       </div>
+       <div id="play-list">
+            <!-- <div class="song">
+                <div class="thumb"></div>
+                <div class="body">
+                    <div class="name-song">abcxyz</div>
+                    <div class="singer">abcxyz</div>
+                </div>
+            </div> -->
+       </div>
+    </div>
+    <audio src="" id="audio"></audio>
+</body>
+<script src="/new2/index.js"></script>
+</html>
